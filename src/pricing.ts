@@ -27,7 +27,7 @@ export const MENU: Record<string, MenuItem> = {
 export const SIZES: Record<string, SizeSpec> = {
   small: { label: "Small", multiplier: 1.0 },
   medium: { label: "Medium", multiplier: 1.3 },
-  large: { label: "Large", multiplier: 1.15 },
+  large: { label: "Large", multiplier: 1.45 },
 };
 
 export const TAX_RATE = 0.0863; // SF
@@ -35,6 +35,11 @@ export const TAX_RATE = 0.0863; // SF
 export function lineTotal(item: string, size: string, qty: number): number {
   const menuItem = MENU[item];
   const sizeSpec = SIZES[size];
+
+  if (!menuItem || !sizeSpec || qty <= 0) {
+    return 0;
+  }
+
   return menuItem.base * sizeSpec.multiplier * qty;
 }
 
@@ -45,7 +50,7 @@ export function orderTotal(lines: OrderLine[], tipPercent: number): OrderTotal {
   }
 
   const tax = subtotal * TAX_RATE;
-  const tip = (subtotal + tax) * (tipPercent / 100);
+  const tip = subtotal * (tipPercent / 100);
 
   return {
     subtotal: round(subtotal),
