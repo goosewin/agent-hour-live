@@ -1,0 +1,10 @@
+{
+  "name": "agent-hour-live",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Motoring Coffee order page — the codebase a room full of people fixed live.",
+  "scripts": {
+    "test": "node test.mjs"
+  }
+}
