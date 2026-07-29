@@ -55,9 +55,9 @@ check("a zero-quantity line adds nothing", () => {
   eq(orderTotal([{ item: "latte", size: "large", qty: 0 }], 0).total, 0);
 });
 
-check("negative quantities are rejected, not discounted", () => {
+check("a negative quantity contributes nothing, rather than discounting the order", () => {
   const t = orderTotal([{ item: "latte", size: "large", qty: -5 }], 0);
-  if (t.total < 0) throw new Error(`negative order total: $${t.total}`);
+  eq(t.total, 0, "a negative-quantity line should contribute $0 to the total —");
 });
 
 check("an unknown drink does not crash the order", () => {
