@@ -1,0 +1,28 @@
+tsconfig.json
+  s_2f8aa6afc9fc9e::t_4e355332f4707d 1-14
+index.html
+  s_2f8aa6afc9fc9e::t_c3328c8a0a5299 106
+package.json
+  s_2f8aa6afc9fc9e::t_1fdf06308032aa 8-15
+  s_2f8aa6afc9fc9e::t_b8716673ae4893 6
+src/pricing.ts
+  s_2f8aa6afc9fc9e::t_e2b761114266a3 1-60
+test.ts
+  s_2f8aa6afc9fc9e::t_c7dee8f3741935 1-68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "8fb3d01625011c2ee4eebb5b866e67a2012d7103",
+  "prompts": {},
+  "sessions": {
+    "s_2f8aa6afc9fc9e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a6a0d90a-018e-492c-8534-5e3341f70339",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Dan Goosewin <dan@goosewin.com>"
+    }
+  }
+}
