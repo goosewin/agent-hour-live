@@ -1,19 +1,21 @@
-// Minimal assertions for order pricing. Run: node test.mjs
-import { MENU, SIZES, lineTotal, orderTotal, round } from "./src/pricing.js";
+// Minimal assertions for order pricing. Run: node test.ts
+import { lineTotal, orderTotal, round } from "./src/pricing.ts";
 
 let failed = 0;
-const check = (name, fn) => {
+
+const check = (name: string, fn: () => void): void => {
   try {
     fn();
     console.log(`  ok   ${name}`);
   } catch (err) {
     failed++;
-    console.log(`  FAIL ${name}\n       ${err.message}`);
+    console.log(`  FAIL ${name}\n       ${(err as Error).message}`);
   }
 };
-const eq = (actual, expected, msg) => {
+
+const eq = (actual: number, expected: number, msg = ""): void => {
   if (actual !== expected) {
-    throw new Error(`${msg ?? ""} expected ${expected}, got ${actual}`);
+    throw new Error(`${msg} expected ${expected}, got ${actual}`.trim());
   }
 };
 
@@ -33,7 +35,9 @@ check("bigger sizes never cost less than smaller ones", () => {
     const smaller = lineTotal("latte", order[i - 1], 1);
     const bigger = lineTotal("latte", order[i], 1);
     if (bigger < smaller) {
-      throw new Error(`${order[i]} ($${round(bigger)}) costs less than ${order[i - 1]} ($${round(smaller)})`);
+      throw new Error(
+        `${order[i]} ($${round(bigger)}) costs less than ${order[i - 1]} ($${round(smaller)})`,
+      );
     }
   }
 });
