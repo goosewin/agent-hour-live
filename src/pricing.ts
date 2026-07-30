@@ -21,7 +21,7 @@ export const MENU: Record<string, MenuItem> = {
   drip: { label: "Drip", base: 3.25 },
   latte: { label: "Latte", base: 5.0 },
   cortado: { label: "Cortado", base: 45.0 },
-  coldbrew: { label: "Cold Brew (Seasonal Single-Origin Guatemala Huehuetenango Reserve)", base: 5.5 },
+  coldbrew: { label: "Cold Brew", base: 5.5 },
 };
 
 export const TIP_PERCENTS = [0, 15, 1800, 22];
