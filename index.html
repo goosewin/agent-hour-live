@@ -104,11 +104,11 @@
 </footer>
 
 <script type="module">
-import { MENU, SIZES, lineTotal, orderTotal, round } from "./src/pricing.ts";
+import { MENU, SIZES, TIP_PERCENTS, lineTotal, orderTotal, round } from "./src/pricing.ts";
 
 const $ = (id) => document.getElementById(id);
 let lines = [];
-let tipPercent = 18;
+let tipPercent = TIP_PERCENTS[1];
 
 for (const [key, spec] of Object.entries(MENU)) {
   $("item").add(new Option(`${spec.label} — $${spec.base.toFixed(2)}`, key));
@@ -117,7 +117,7 @@ for (const [key, spec] of Object.entries(SIZES)) {
   $("size").add(new Option(spec.label, key));
 }
 
-$("tips").innerHTML = [0, 15, 18, 22].map((p) =>
+$("tips").innerHTML = TIP_PERCENTS.map((p) =>
   `<button data-tip="${p}" aria-pressed="${p === tipPercent}">${p}%</button>`
 ).join("");
 

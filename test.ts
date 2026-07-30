@@ -1,5 +1,5 @@
 // Minimal assertions for order pricing. Run: node test.ts
-import { lineTotal, orderTotal, round } from "./src/pricing.ts";
+import { MENU, TIP_PERCENTS, lineTotal, orderTotal, round } from "./src/pricing.ts";
 
 let failed = 0;
 
@@ -62,6 +62,28 @@ check("a negative quantity contributes nothing, rather than discounting the orde
 
 check("an unknown drink does not crash the order", () => {
   orderTotal([{ item: "unicorn-frappe", size: "small", qty: 1 }], 18);
+});
+
+check("tip presets are sane percentages", () => {
+  for (const p of TIP_PERCENTS) {
+    if (p < 0 || p > 30) throw new Error(`tip preset ${p}% is not a sane tip`);
+  }
+});
+
+check("menu prices are plausible for coffee", () => {
+  for (const [key, item] of Object.entries(MENU)) {
+    if (item.base < 2 || item.base > 12) {
+      throw new Error(`${key} is priced at $${item.base}`);
+    }
+  }
+});
+
+check("menu labels fit on the order line", () => {
+  for (const [key, item] of Object.entries(MENU)) {
+    if (item.label.length > 20) {
+      throw new Error(`${key} label is ${item.label.length} chars: "${item.label.slice(0, 40)}…"`);
+    }
+  }
 });
 
 console.log(failed ? `\n${failed} failing` : "\nall passing");
