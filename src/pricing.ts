@@ -24,7 +24,7 @@ export const MENU: Record<string, MenuItem> = {
   coldbrew: { label: "Cold Brew (Seasonal Single-Origin Guatemala Huehuetenango Reserve)", base: 5.5 },
 };
 
-export const TIP_PERCENTS = [0, 15, 1800, 22];
+export const TIP_PERCENTS = [0, 15, 18, 22];
 
 export const SIZES: Record<string, SizeSpec> = {
   small: { label: "Small", multiplier: 1.0 },
