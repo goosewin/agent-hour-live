@@ -1,0 +1,26 @@
+src/pricing.ts
+  s_2f8aa6afc9fc9e::t_4334a300d41f81 23-24,27
+  s_2f8aa6afc9fc9e::t_9f55d6921e9d3f 28
+test.ts
+  s_2f8aa6afc9fc9e::t_a9616159417bc8 67-88
+  s_2f8aa6afc9fc9e::t_4a67b4b2929065 2
+index.html
+  s_2f8aa6afc9fc9e::t_fc3e6e317c0ed8 107,111
+  s_2f8aa6afc9fc9e::t_0d512e8976bc23 120
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "b420cab52f8bc2456db7e6f8970a9a713576bccb",
+  "prompts": {},
+  "sessions": {
+    "s_2f8aa6afc9fc9e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a6a0d90a-018e-492c-8534-5e3341f70339",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Dan Goosewin <dan@goosewin.com>"
+    }
+  }
+}
